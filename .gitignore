@@ -1,0 +1,8 @@
+# build artifacts
+build/
+dist/
+*.spec
+__pycache__/
+*.pyc
+latency-crash.txt
+*.json
