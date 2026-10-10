@@ -260,7 +260,7 @@ class App:
         ttk.Label(top, text="GitHub 延迟监视器",
                   font=("Microsoft YaHei UI", 14, "bold")).pack(side="left")
         self.auto_var = tk.BooleanVar(value=True)
-        self.interval = tk.StringVar(value="10s")
+        self.interval = tk.StringVar(value="1s")
         ttk.Label(top, text="间隔(秒,可输入)", style="Muted.TLabel").pack(side="right")
         box = ttk.Combobox(top, textvariable=self.interval, width=8,
                            values=("1s", "5s", "10s", "30s", "60s"), state="normal")
@@ -328,7 +328,7 @@ class App:
     def refresh(self):
         if self.running:
             return
-        iv = self.parse_interval() or 10
+        iv = self.parse_interval() or 1
         fast = iv < FAST_BELOW and bool(self.known_best)
         full_due = (time.time() - self.last_full) >= FULL_EVERY
         fast = fast and not full_due
